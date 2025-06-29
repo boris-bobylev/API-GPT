@@ -141,6 +141,27 @@ print(response.choices[0].message.content)
 
 ---
 
+## Пример 5: Работа с локальной моделью Llama через API
+```python
+import requests
+
+API_URL = "http://localhost:8000/generate"
+
+def query_llama(prompt: str):
+    data = {"prompt": prompt}
+    response = requests.post(API_URL, json=data)
+    return response.json().get("response")
+
+# Пример использования
+response = query_llama("Как работает гравитация?")
+print(response)
+```
+
+**Описание:**
+простой пример Python-скрипта для работы с локальной LLM-моделью (например, Llama 2) через API, используя библиотеку requests. Предполагается, что у вас уже развёрнуто локальное API.
+
+---
+
 ## Общие рекомендации:
 1. Всегда проверяйте статус ответа от API, чтобы убедиться, что запрос прошел успешно.
 2. Настройте параметры запроса в зависимости от нужд, такие как `temperature` (случайность) и `max_tokens` (длина ответа).
