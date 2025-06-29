@@ -117,8 +117,12 @@ else:
 from gigachat import GigaChat
 from gigachat.models import Chat, Messages, MessagesRole
 
-# Авторизация через токен
+# Авторизация через сертификат или логин/пароль
+# Вариант 1: С использованием токена (полученного заранее)
 giga = GigaChat(credentials='your_auth_token_here', verify_ssl_certs=False)
+
+# Вариант 2: С использованием логина и пароля (если нет токена)
+# giga = GigaChat(credentials="your_login:your_password", verify_ssl_certs=False)
 
 prompt = "Придумай 5 идей для мобильного приложения"
 
